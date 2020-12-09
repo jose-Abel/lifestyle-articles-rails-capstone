@@ -1,0 +1,1 @@
+# lifestyle-articles-rails-capstone
