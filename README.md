@@ -45,6 +45,7 @@ For the linters, this tests runs once you make a PR, if you have it in the respe
 ## Run Rails mini test
 To run all of the tests, open the terminal from the root of the program and type the command:
 
+- rails db:migrate RAILS_ENV=test
 - rails test
 
 ## Run Rubocop tests
