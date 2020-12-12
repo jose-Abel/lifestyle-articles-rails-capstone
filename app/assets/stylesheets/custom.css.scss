@@ -1,0 +1,75 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+body {
+  font-family: 'Padauk', sans-serif;
+}
+
+#navbar {
+  height: 5rem !important;
+}
+
+.logo-box {
+  position: relative;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  color: #606060 !important;
+  font-weight: bold;
+}
+
+.littlecircle {
+  background: orangered;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+}
+
+.links {
+  text-transform: uppercase;
+  font-size: 1.2rem !important;
+}
+
+.login, .signup, .logout {
+  color: gray;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 1.2rem !important;
+}
+
+.login:hover, .signup:hover, .logout:hover {
+  color: gray;
+  list-style: none;
+  text-decoration: none;
+}
+
+.magnifying-glass {
+  color: gray;
+  font-size: 1.3rem;
+}
+
+.lineinmiddle {
+  border-left: 4px solid gray;
+  height: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-toggler {
+    position: absolute;
+    left: 2px !important;
+    top: 4px !important;
+  }
+
+  .navbar-brand {
+    margin: auto !important;
+  }
+
+  .login-signup {
+    flex-direction: column !important;
+    float: left !important;
+
+  }
+}
