@@ -2,6 +2,11 @@
 
 body {
   font-family: 'Padauk', sans-serif;
+  background-color: #4E443E;
+}
+
+.custom-container {
+  margin: 0 0.5rem;
 }
 
 #navbar {
@@ -48,9 +53,18 @@ body {
   text-decoration: none;
 }
 
+.magnifying-glass-box {
+  position: relative;
+  z-index: 10000;
+  margin-left: 2rem;
+}
+
 .magnifying-glass {
   color: gray;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
+  position: absolute;
+  top: -0.8rem;
+  right: 10px;
 }
 
 .lineinmiddle {
@@ -84,16 +98,6 @@ body {
     width: 100%;
   }
 
-  .magnifying-glass-box {
-    position: relative;
-    z-index: 10000;
-  }
-  .magnifying-glass {
-    position: absolute;
-    top: -3.5rem;
-    right: 10px;
-  }
-
   .logo-box {
     margin: 0 auto;
   }
@@ -102,18 +106,105 @@ body {
     right: -0.7rem;
     bottom: 15px;
   }
-}
 
-
-@media (min-width: 992px) {
   .magnifying-glass-box {
+    visibility: hidden;
+  }
+  
+  .magnifying-glass {
+    visibility: hidden;
+  }
+
+  .magnifying-glass-box-2 {
     position: relative;
     z-index: 10000;
+    margin-left: 2rem;
   }
-  .magnifying-glass {
+  
+  .magnifying-glass-2 {
+    color: gray;
+    font-size: 1.4rem;
     position: absolute;
     top: -3.5rem;
     right: 10px;
   }
 }
 
+@media (min-width: 992px){
+  .magnifying-glass-box-2 {
+    visibility: hidden;
+  }
+  
+  .magnifying-glass-2 {
+    visibility: hidden;
+  }
+}
+
+.images-box {
+  margin-top: -1rem;
+}
+
+.images {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-box {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.logo-box-footer {
+  width: 8rem;
+  position: relative;
+  height: 2.5rem;
+}
+
+.footer-brand {
+  font-size: 2rem;
+  color: white !important;
+  font-weight: bold;
+}
+
+.littlecircle-footer {
+  background: orangered;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-social-media {
+  display: flex;
+}
+
+.footer-social-media-icons {
+  background: orangered;
+  padding: 5px;
+  border-radius: 50%;
+  color: black;
+}
+
+a.article-title.black-color {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black !important;
+  text-decoration: none;
+}
+
+a.category-title.black-color {
+  color: black !important;
+  font-weight: bold;
+}
+
+a.category-title.black-color:hover {
+  text-decoration: none;
+}
+
+.card-with-images {
+  display: flex;
+}
