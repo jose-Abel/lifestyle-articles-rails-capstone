@@ -6,7 +6,10 @@
         <%= image_tag "ford-mustang-1970.jpg", class: "images" %>
         <div class="card-img-overlay d-flex justify-content-end flex-column">
           <h5 class="card-title ">Title: <%= link_to render_most_popular(@articles).title, article_path(render_most_popular(@articles)), class: "article-title black-color" %></h5>
-          <p class="card-text">Description: <%= render_most_popular(@articles).text %>.</p>          
+          <p class="card-text">Description: <%= render_most_popular(@articles).text %>.</p>
+          <div class="article-voting unvoting badge badge-pill badge-secondary">
+            <%= vote_or_unvote_btn(render_most_popular(@articles))  %>
+          </div>
         </div>
       </div>
     </div>
@@ -20,12 +23,13 @@
         <div class="card bg-dark">
           <%= image_tag "enterpreneur.png", class: "images" %>
           <div class="card-img-overlay d-flex flex-column">
-            <% unless article.categories.length == 0 %>
-              <h5 class="card-title article-category">
-              
-            <h5 class="card-title"><%= render article.categories %> </h5>
+            <% unless article.categories.length == 0 %>            
+              <h5 class="card-title article-category"><%= render article.categories %> </h5>
             <% end %>
-            <p class="mt-5""><%= link_to article.title, article_path(article), class: "article-title black-color" %></p>            
+            <p class="mt-5""><%= link_to article.title, article_path(article), class: "article-title black-color" %></p>
+            <div class="other-articles-voting unvoting badge badge-pill badge-secondary">
+              <%= vote_or_unvote_btn(article) %>
+            </div>           
           </div>
         </div>
       </div>

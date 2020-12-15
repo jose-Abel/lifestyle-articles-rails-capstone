@@ -1,8 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+$primary-color-dark :#4E443E;
+$color-black: black;
+
 body {
   font-family: 'Padauk', sans-serif;
-  background-color: #4E443E;
+  background-color: $primary-color-dark;
 }
 
 .custom-container {
@@ -190,7 +193,7 @@ body {
 
 a.article-title.black-color {
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   color: black !important;
   text-decoration: none;
@@ -207,4 +210,30 @@ a.category-title.black-color:hover {
 
 .card-with-images {
   display: flex;
+}
+
+.article-voting.unvoting {
+  width: 10%;
+
+  a {
+    color: black !important;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0 4px;
+  }
+
+}
+
+.other-articles-voting {
+  width: 25%;
+  float: right;
+  margin-top: -1rem;
+
+  a {
+    color: black !important;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 4px;
+  }
+
 }

@@ -1,9 +1,9 @@
 <div class="custom-container">
   <div class="row">
     <% @articles.each do |article| %>
-      <div class="col mt-4 card-with-images">
+      <div class="col-6 mt-4 card-with-images">
         <div>
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <%= image_tag "sports.jpg", class: "images" %>
         </div>
         <div class="card text-center shadow bg-white">
           <div class="card-header font-italic">
