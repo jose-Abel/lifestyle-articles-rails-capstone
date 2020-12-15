@@ -33,22 +33,24 @@ body {
   font-size: 1.2rem !important;
 }
 
+.nav-link:hover {
+  color: orangered !important;
+}
+
 .login, .signup, .logout {
-  color: gray;
+  color: slategray;
   list-style: none;
-  text-transform: uppercase;
-  font-size: 1.2rem !important;
 }
 
 .login:hover, .signup:hover, .logout:hover {
-  color: gray;
+  color: orangered;
   list-style: none;
   text-decoration: none;
 }
 
 .magnifying-glass {
   color: gray;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
 }
 
 .lineinmiddle {
@@ -56,10 +58,10 @@ body {
   height: 20px;
 }
 
-@media screen and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 991px) {
   .navbar-toggler {
     position: absolute;
-    left: 2px !important;
+    left: 5px !important;
     top: 4px !important;
   }
 
@@ -67,9 +69,51 @@ body {
     margin: auto !important;
   }
 
-  .login-signup {
-    flex-direction: column !important;
-    float: left !important;
+  .nav-link {
+    color: white !important;
+  }
 
+  .links {
+    width: 40%;
+    background-color: #606060;
+    margin-left: -0.9rem;
+  }
+
+  .login-signup {
+    margin-top: -8px !important;
+    width: 100%;
+  }
+
+  .magnifying-glass-box {
+    position: relative;
+    z-index: 10000;
+  }
+  .magnifying-glass {
+    position: absolute;
+    top: -3.5rem;
+    right: 10px;
+  }
+
+  .logo-box {
+    margin: 0 auto;
+  }
+
+  .littlecircle {
+    right: -0.7rem;
+    bottom: 15px;
   }
 }
+
+
+@media (min-width: 992px) {
+  .magnifying-glass-box {
+    position: relative;
+    z-index: 10000;
+  }
+  .magnifying-glass {
+    position: absolute;
+    top: -3.5rem;
+    right: 10px;
+  }
+}
+
