@@ -1,22 +1,25 @@
 module ArticleHelper
 
   def render_most_popular(articles)
-    popular = Vote.popular
-    articles.each do |article|
-      return article if article == popular
+    popular = Vote.popular.first
+    
+    if popular
+      return Article.find_by(id: popular.article_id)
+    else
+      return articles[0]
     end
-    articles[0]
   end
 
   def render_without_popular(articles)
-    popular = Vote.popular
+    popular = Vote.popular.first
 
-    if popular.length == 0
-      articles = articles.reject { |x|
-        x.id == articles[0].id }
-    else
+    if popular
       articles = articles.reject { |x|
         x.id == popular.article_id }
+
+    else
+      articles = articles.reject { |x|
+        x.id == articles[0].id }
     end
 
     articles
