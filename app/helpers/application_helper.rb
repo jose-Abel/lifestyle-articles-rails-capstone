@@ -1,6 +1,4 @@
 module ApplicationHelper
-
-
   def vote_or_unvote_btn(article)
     vote = Vote.find_by(article: article, user: current_user)
     if vote

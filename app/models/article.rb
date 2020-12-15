@@ -8,4 +8,15 @@ class Article < ApplicationRecord
   has_many :article_categories
   has_many :categories, through: :article_categories
 
+  mount_uploader :image, PictureUploader
+
+  validate :image_size
+
+  private
+
+  def image_size
+    if image.size > 5.megabytes
+      errors.add(:image, "should be less than 5 MB")
+    end
+  end
 end

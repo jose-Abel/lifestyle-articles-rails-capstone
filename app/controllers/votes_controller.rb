@@ -3,9 +3,9 @@ class VotesController < ApplicationController
     @vote = current_user.votes.new(article_id: params[:article_id])
 
     if @vote.save
-      redirect_to root_path, notice: 'You vote a post.'
+      redirect_to root_path, notice: 'You vote an article.'
     else
-      redirect_to root_path, alert: 'You cannot vote this post.'
+      redirect_to root_path, alert: 'You cannot vote this article.'
     end
   end
 
@@ -13,9 +13,9 @@ class VotesController < ApplicationController
     vote = Vote.find_by(id: params[:id], user: current_user, article_id: params[:article_id])
     if vote
       vote.destroy
-      redirect_to root_path, notice: 'You unvoted a post.'
+      redirect_to root_path, notice: 'You unvoted an article.'
     else
-      redirect_to root_path, alert: 'You cannot unvote post that you did not vote before.'
+      redirect_to root_path, alert: 'You cannot unvote an article that you did not vote before.'
     end
   end
 end

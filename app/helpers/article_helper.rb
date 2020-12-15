@@ -16,12 +16,18 @@ module ArticleHelper
     if popular
       articles = articles.reject { |x|
         x.id == popular.article_id }
-
     else
       articles = articles.reject { |x|
         x.id == articles[0].id }
     end
-
     articles
+  end
+
+  def render_picture(article)
+    if article.image?
+      return article.image.url
+    else
+      return "ford-mustang-1970.jpg"
+    end
   end
 end
