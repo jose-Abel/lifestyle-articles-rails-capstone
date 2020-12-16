@@ -1,0 +1,36 @@
+<div class="custom-container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-md-12 col-lg-6 mt-4 card-with-images">
+        <div>
+          <%= image_tag render_picture(article), class: "images" %>
+        </div>
+        <div class="card text-center shadow bg-white">
+          <div class="card-header font-italic">
+            <% if article.user %>
+              by <%= link_to article.user.username, user_path(article.user) %>
+            <% end %>
+            <% if article.categories.any? %>
+              <div class=""><%= render article.categories %></div>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to article.title, article_path(article), class:"text-success" %></h5>     
+            <p class="card-text"><%= truncate(article.text, length: 100) %></p>
+            <%= link_to "View", article_path(article), class:"btn btn-outline-success" %>
+            <% if logged_in? && (article.user == current_user) %>
+              <%= link_to "Edit", edit_article_path(article), class:"btn btn-outline-info" %>
+              <%= link_to "Delete", article_path(article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted">
+            <small> Created <%= time_ago_in_words(article.created_at) %> ago,
+            edited <%= time_ago_in_words(article.updated_at) %> ago </small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
