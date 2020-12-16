@@ -6,7 +6,7 @@
         <% if render_most_popular(@articles) %>
           <%= image_tag render_picture(render_most_popular(@articles)), class: "images" %>
           <div class="card-img-overlay d-flex justify-content-end flex-column">
-            <% if render_most_popular(@articles).categories %>            
+            <% if render_most_popular(@articles).categories %>
               <h5 class="article-category"><%= render render_most_popular(@articles).categories %> </h5>
             <% end %>          
             <h5 class="card-title"><%= link_to render_most_popular(@articles).title, article_path(render_most_popular(@articles)), class: "article-title text-white" %></h5>
@@ -26,14 +26,14 @@
 <div class="images-box" >
   <div class=" row">
     <% render_without_popular(@articles).each do |article| %>
-      <div class="col-sm-3 my-3">
+      <div class="col-md-6 col-lg-3">
         <div class="card bg-dark">
            <%= image_tag render_picture(article), class: "images" %>
           <div class="card-img-overlay">
             <% if article.categories %>            
               <h5 class="article-category"><%= render article.categories %> </h5>
             <% end %>
-            <p class="mt-5""><%= link_to article.title, article_path(article), class: "article-title text-white" %></p>
+            <p class="article-title-p"><%= link_to article.title, article_path(article), class: "article-title text-white" %></p>
             <% if current_user %>
               <div class="other-articles-voting unvoting badge badge-pill badge-secondary">
                 <%= vote_or_unvote_btn(article) %>

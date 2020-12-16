@@ -1,7 +1,7 @@
 <div class="custom-container">
   <div class="row">
     <% @articles.each do |article| %>
-      <div class="col-6 mt-4 card-with-images">
+      <div class="col-md-12 col-lg-6 mt-4 card-with-images">
         <div>
           <%= image_tag render_picture(article), class: "images" %>
         </div>
