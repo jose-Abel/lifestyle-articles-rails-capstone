@@ -32,7 +32,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show article" do
-    get article_path(@article)
+    get article_url(@article)
     assert_response :success
   end
 
@@ -54,7 +54,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
       delete article_url(@article)
     end
 
-    assert_redirected_to articles_url
+    assert_redirected_to root_url
   end
 
 end
