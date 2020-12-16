@@ -1,12 +1,11 @@
 module ArticleHelper
-
   def render_most_popular(articles)
     popular = Vote.popular.first
-    
+
     if popular
-      return Article.find_by(id: popular.article_id)
+      Article.find_by(id: popular.article_id)
     else
-      return articles[0]
+      articles[0]
     end
   end
 
@@ -14,16 +13,17 @@ module ArticleHelper
     popular = Vote.popular.first
 
     if popular
-      articles = articles.reject { |x|
-        x.id == popular.article_id }
+      articles.reject do |x|
+        x.id == popular.article_id
+      end
     else
-      articles = articles.reject { |x|
-        x.id == articles[0].id }
+      articles.reject do |x|
+        x.id == articles[0].id
+      end
     end
-    articles
   end
 
   def render_picture(article)
-      return article.image.url
+    article.image.url
   end
 end
