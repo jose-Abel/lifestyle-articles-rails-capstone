@@ -24,10 +24,6 @@ module ArticleHelper
   end
 
   def render_picture(article)
-    if article.image?
-      return article.image.url
-    else
-      return "ford-mustang-1970.jpg"
-    end
+      return article.image.url if article.image?
   end
 end

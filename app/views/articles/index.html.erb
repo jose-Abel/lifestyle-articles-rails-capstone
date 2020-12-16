@@ -3,7 +3,7 @@
     <div class="col">
 
       <div class="card bg-dark text-white">
-        <% if @articles %>
+        <% if render_most_popular(@articles) %>
           <%= image_tag render_picture(render_most_popular(@articles)), class: "images" %>
           <div class="card-img-overlay d-flex justify-content-end flex-column">
             <h5 class="card-title">Title: <%= link_to render_most_popular(@articles).title, article_path(render_most_popular(@articles)), class: "article-title text-white" %></h5>
