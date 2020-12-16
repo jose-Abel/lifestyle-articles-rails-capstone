@@ -45,15 +45,15 @@ body {
   color: orangered !important;
 }
 
-.login, 
-.signup, 
+.login,
+.signup,
 .logout {
   color: slategray;
   list-style: none;
 }
 
-.login:hover, 
-.signup:hover, 
+.login:hover,
+.signup:hover,
 .logout:hover {
   color: orangered;
   list-style: none;
@@ -117,7 +117,7 @@ body {
   .magnifying-glass-box {
     visibility: hidden;
   }
-  
+
   .magnifying-glass {
     visibility: hidden;
   }
