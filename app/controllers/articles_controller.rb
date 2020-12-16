@@ -1,3 +1,5 @@
+# rubocop : disable Style/GuardClause
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
@@ -60,3 +62,5 @@ class ArticlesController < ApplicationController
     end
   end
 end
+
+# rubocop : enable Style/GuardClause
