@@ -1,6 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-$primary-color-dark :#4E443E;
+$primary-color-dark :#4e443e;
 $color-black: black;
 
 body {
@@ -45,12 +45,16 @@ body {
   color: orangered !important;
 }
 
-.login, .signup, .logout {
+.login, 
+.signup, 
+.logout {
   color: slategray;
   list-style: none;
 }
 
-.login:hover, .signup:hover, .logout:hover {
+.login:hover, 
+.signup:hover, 
+.logout:hover {
   color: orangered;
   list-style: none;
   text-decoration: none;
@@ -123,7 +127,7 @@ body {
     z-index: 10000;
     margin-left: 2rem;
   }
-  
+
   .magnifying-glass-2 {
     color: gray;
     font-size: 1.4rem;
@@ -137,7 +141,7 @@ body {
   .magnifying-glass-box-2 {
     visibility: hidden;
   }
-  
+
   .magnifying-glass-2 {
     visibility: hidden;
   }
@@ -200,7 +204,6 @@ body {
 
 p.article-title-p {
   margin-top: 2rem !important;
-
 }
 
 a.article-title {
@@ -228,18 +231,6 @@ a.category-title:hover {
   display: flex;
 }
 
-.article-voting.unvoting {
-  width: 10%;
-
-  a {
-    color: black !important;
-    font-weight: bold;
-    font-size: 2rem;
-    margin: 0 4px;
-  }
-
-}
-
 .other-articles-voting {
   width: 25%;
   float: right;
@@ -251,5 +242,15 @@ a.category-title:hover {
     font-size: 1rem;
     margin: 0 4px;
   }
+}
 
+.article-voting.unvoting {
+  width: 10%;
+
+  a {
+    color: black !important;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0 4px;
+  }
 }
