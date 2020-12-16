@@ -24,6 +24,6 @@ module ArticleHelper
   end
 
   def render_picture(article)
-      return article.image.url if article.image?
+      return article.image.url
   end
 end

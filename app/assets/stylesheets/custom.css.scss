@@ -133,13 +133,20 @@ body {
   }
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
   .magnifying-glass-box-2 {
     visibility: hidden;
   }
   
   .magnifying-glass-2 {
     visibility: hidden;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1224px) {
+  a.article-title {
+    font-size: 0.8rem !important;
+    margin-top: 0;
   }
 }
 
@@ -191,6 +198,11 @@ body {
   color: black;
 }
 
+p.article-title-p {
+  margin-top: 2rem !important;
+
+}
+
 a.article-title {
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -231,7 +243,7 @@ a.category-title:hover {
 .other-articles-voting {
   width: 25%;
   float: right;
-  margin-top: -1rem;
+  margin-top: -2.5rem;
 
   a {
     color: black !important;
