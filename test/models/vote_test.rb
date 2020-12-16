@@ -1,3 +1,5 @@
+# rubocop : disable Layout/LineLength
+
 require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
@@ -17,3 +19,5 @@ class VoteTest < ActiveSupport::TestCase
     assert_not @vote2.valid?
   end
 end
+
+# rubocop : enable Layout/LineLength

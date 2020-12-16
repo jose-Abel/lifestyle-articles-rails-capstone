@@ -1,3 +1,5 @@
+# rubocop : disable Layout/LineLength
+
 require 'test_helper'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
@@ -56,3 +58,5 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 end
+
+# rubocop : enable Layout/LineLength

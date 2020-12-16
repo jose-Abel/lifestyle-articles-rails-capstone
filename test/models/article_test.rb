@@ -1,3 +1,5 @@
+# rubocop : disable Layout/LineLength
+
 require 'test_helper'
 
 class ArticleTest < ActiveSupport::TestCase
@@ -40,3 +42,5 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not @article.valid?
   end
 end
+
+# rubocop : enable Layout/LineLength
