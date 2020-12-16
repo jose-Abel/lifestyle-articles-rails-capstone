@@ -191,21 +191,25 @@ body {
   color: black;
 }
 
-a.article-title.black-color {
+a.article-title {
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  color: black !important;
   text-decoration: none;
 }
 
-a.category-title.black-color {
-  color: black !important;
-  font-weight: bold;
+a.category-title:hover {
+  text-decoration: none;
 }
 
-a.category-title.black-color:hover {
-  text-decoration: none;
+.article-text {
+  font-size: 2rem !important;
+}
+
+.article-category {
+  a {
+    color: white !important;
+  }
 }
 
 .card-with-images {

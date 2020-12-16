@@ -7,14 +7,12 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @most_popular = Vote.popular
   end
 
   def show
   end
 
   def new
-    @articles = Article.all
     @article = Article.new
   end
 
@@ -54,7 +52,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, category_ids: [])
+    params.require(:article).permit(:title, :text, :image, category_ids: [])
   end
 
   def require_same_user

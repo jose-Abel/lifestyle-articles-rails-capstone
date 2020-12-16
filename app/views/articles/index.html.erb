@@ -3,13 +3,17 @@
     <div class="col">
 
       <div class="card bg-dark text-white">
-        <%= image_tag "ford-mustang-1970.jpg", class: "images" %>
-        <div class="card-img-overlay d-flex justify-content-end flex-column">
-          <h5 class="card-title ">Title: <%= link_to render_most_popular(@articles).title, article_path(render_most_popular(@articles)), class: "article-title black-color" %></h5>
-          <p class="card-text">Description: <%= render_most_popular(@articles).text %>.</p>
-          <div class="article-voting unvoting badge badge-pill badge-secondary">
-            <%= vote_or_unvote_btn(render_most_popular(@articles))  %>
-          </div>
+        <% if render_most_popular(@articles) %>
+          <%= image_tag render_picture(render_most_popular(@articles)), class: "images" %>
+          <div class="card-img-overlay d-flex justify-content-end flex-column">
+            <h5 class="card-title">Title: <%= link_to render_most_popular(@articles).title, article_path(render_most_popular(@articles)), class: "article-title text-white" %></h5>
+            <p class="article-text">Description: <%= render_most_popular(@articles).text %>.</p>
+            <% if current_user %>
+              <div class="article-voting unvoting badge badge-pill badge-secondary">
+                <%= vote_or_unvote_btn(render_most_popular(@articles))  %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -21,15 +25,18 @@
     <% render_without_popular(@articles).each do |article| %>
       <div class="col-sm-3 my-3">
         <div class="card bg-dark">
-          <%= image_tag "enterpreneur.png", class: "images" %>
+           <%= image_tag render_picture(article), class: "images" %>
           <div class="card-img-overlay d-flex flex-column">
-            <% unless article.categories.length == 0 %>            
-              <h5 class="card-title article-category"><%= render article.categories %> </h5>
+          <div class="card-img-overlay d-flex flex-column">
+            <% if article.categories %>            
+              <h5 class="article-category"><%= render article.categories %> </h5>
             <% end %>
-            <p class="mt-5""><%= link_to article.title, article_path(article), class: "article-title black-color" %></p>
-            <div class="other-articles-voting unvoting badge badge-pill badge-secondary">
-              <%= vote_or_unvote_btn(article) %>
-            </div>           
+            <p class="mt-4""><%= link_to article.title, article_path(article), class: "article-title text-white" %></p>
+            <% if current_user %>
+              <div class="other-articles-voting unvoting badge badge-pill badge-secondary">
+                <%= vote_or_unvote_btn(article) %>
+              </div>
+            <% end %>          
           </div>
         </div>
       </div>

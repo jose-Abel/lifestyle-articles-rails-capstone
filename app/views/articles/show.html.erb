@@ -16,7 +16,7 @@
             <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
             <%= link_to "Delete", article_path(@article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
-        </div>
+          </div>
         <div class="card-footer text-muted">
           <small> Created <%= time_ago_in_words(@article.created_at) %> ago,
           edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
