@@ -31,13 +31,20 @@ The test were made with Rails minitest library.
 - Deployment with Heroku
 
 ### Ruby gems:
-- MiniTests
-- rubocop
+- carrierwave
+- fog-aws
+- mini_magick
 
 ### Yarn packages:
 - bootstrap 
 - jquery 
 - popper.js
+
+
+### Deployment
+
+[live demo](https://lifestyle-articles-jose-abel.herokuapp.com/)
+
 
 ## Author
 - 👤GitHub: [Jose Abel Ramirez](https://github.com/jose-Abel)
@@ -49,9 +56,44 @@ Can download this code with any method and over the terminal with the commands:
 
 - git clone https://github.com/jose-Abel/lifestyle-articles-rails-capstone.git
 - cd lifestyle-articles-rails-capstone
-- bundle install
-- yarn install
-- yarn add bootstrap jquery popper.js
+
+Instal gems with:
+
+```
+bundle install
+```
+
+Run
+
+```
+yarn install
+```
+
+Setup database with:
+
+```
+   rails db:create
+   rails db:migrate
+```
+
+### Github Actions
+
+To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
+
+1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
+2. Create the `feature/branch` and push.
+3. Start working on your milestone as usual.
+4. Open a PR from the `feature/branch` when your work is done.
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
 
 
 ## Run linters
