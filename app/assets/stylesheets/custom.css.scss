@@ -154,13 +154,22 @@ body {
   }
 }
 
-.images-box {
-  margin-top: -1rem;
+.main-image-box {
+  margin-top: -1.2rem;
+}
+
+.main-image {
+  height: 70vh;
 }
 
 .images {
   width: 100%;
-  height: 100%;
+  height: 10rem;
+}
+
+.column-box {
+  margin-right: -1rem;
+  margin-left: -1px;
 }
 
 .footer-box {
@@ -253,4 +262,8 @@ a.category-title:hover {
     font-size: 2rem;
     margin: 0 4px;
   }
+}
+
+.card-img-overlay {
+  padding: 0;
 }
