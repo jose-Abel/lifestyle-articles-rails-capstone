@@ -1,6 +1,7 @@
 module ArticleHelper
 
   def render_without_popular(articles)
+    return unless articles.any?
     popular = Vote.popular.first
 
     if popular
@@ -28,6 +29,7 @@ module ArticleHelper
     return unless article.categories.any?
     priority = 0
     most_important_category = ''
+    
     article.categories.each do |category|
       if category.priority > priority
         priority = category.priority
@@ -36,5 +38,4 @@ module ArticleHelper
     end
     most_important_category
   end
-  
 end

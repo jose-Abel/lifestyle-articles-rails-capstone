@@ -20,7 +20,7 @@ For the CSS it was used Boostrap and also some CSS code directly in the custom.c
 
 To upload image was implemented with the gems carrierwave, minimagick and fog-aws. 
 
-The test were made with Rails minitest library.
+The test were made with Rails Rspec gem and also with Rails minitest library.
 
 ## Built With
 - Ruby programming language
@@ -34,6 +34,7 @@ The test were made with Rails minitest library.
 - carrierwave
 - fog-aws
 - mini_magick
+- rspec
 
 ### Yarn packages:
 - bootstrap 
@@ -54,43 +55,44 @@ The test were made with Rails minitest library.
 ## Getting Started
 Can download this code with any method and over the terminal with the commands:
 
-- git clone https://github.com/jose-Abel/lifestyle-articles-rails-capstone.git
-- cd lifestyle-articles-rails-capstone
+```
+git clone https://github.com/jose-Abel/lifestyle-articles-rails-capstone.git
 
-Instal gems with:
+cd lifestyle-articles-rails-capstone
+
+```
+
+Install gems with:
 
 ```
 bundle install
+
 ```
 
-Run
+Install npm packages with:
 
 ```
 yarn install
+
 ```
 
 Setup database with:
 
 ```
-   rails db:create
-   rails db:migrate
+
+rails db:create
+rails db:migrate
+
 ```
-
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
 
 ### Usage
 
 Start server with:
 
 ```
-    rails server
+
+rails server
+
 ```
 
 Open `http://localhost:3000/` in your browser.
@@ -102,20 +104,39 @@ For the linters, this tests runs once you make a PR, if you have it in the respe
 - From the root of this project create the folders .github/workflows
 - Add a copy of [.github/workflows/tests.yml](https://github.com/microverseinc/linters-config/blob/master/ruby/.github/workflows/tests.yml) to the .github/workflows
 
-## Run Rails mini test
+## Run Rails Rspec Tests 
+
+```
+
+rspec spec
+
+```
+
+
+### Run Rails mini test
 To run all of the tests, open the terminal from the root of the program and type the command:
 
-- rails db:migrate RAILS_ENV=test
-- rails test
+```
+
+rails db:migrate RAILS_ENV=test
+
+rails test
+
+```
 
 ## Run Rubocop tests
 The instructions to setup this tests are at this repository: [Rubocop instructions](https://github.com/microverseinc/linters-config/tree/master/ruby)
 
 To download rubocop and run the tests on your local environment, this are the commands to type in the Linux, Mac terminal or Windows cmd:
-- gem 'rubocop'
-- cd lifestyle-articles-rails-capstone
-- copy this file [.rubocop.yml](https://github.com/microverseinc/linters-config/blob/master/ruby/.rubocop.yml) in the root directory of the project
-- type in the terminal 'rubocop'
+
+```
+
+gem 'rubocop'
+cd lifestyle-articles-rails-capstone
+copy this file [.rubocop.yml](https://github.com/microverseinc/linters-config/blob/master/ruby/.rubocop.yml) in the root directory of the project
+type in the terminal 'rubocop'
+
+```
 
 
 ### Acknowledgments

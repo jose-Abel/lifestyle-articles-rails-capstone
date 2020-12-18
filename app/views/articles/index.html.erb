@@ -2,13 +2,11 @@
   <div class="row">
     <div class="col remove-padding">
       <div class="card bg-dark text-white">
-        <% if @most_voted_article %>
-          <%= image_tag check_picture(@most_voted_article), class: "main-image" %>
-          <div class="card-img-overlay d-flex justify-content-end flex-column">
-            <h5 class="card-title"><%= link_to @most_voted_article.title, article_path(@most_voted_article), class: "article-title orange-color" %></h5>
-            <p class="article-text"> <%= truncate(@most_voted_article.text, length: 100) %>.</p>
-          </div>
-        <% end %>
+        <%= image_tag check_picture(@most_voted_article), class: "main-image" %>
+        <div class="card-img-overlay d-flex justify-content-end flex-column">
+          <h5 class="card-title"><%= link_to @most_voted_article.title, article_path(@most_voted_article), class: "article-title orange-color" %></h5>
+          <p class="article-text"> <%= truncate(@most_voted_article.text, length: 100) %>.</p>
+        </div>
       </div>
     </div>
   </div>

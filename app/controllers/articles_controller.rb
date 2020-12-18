@@ -8,8 +8,8 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: %i[edit update destroy]
 
   def index
-    @articles = Article.all.order('created_at DESC')
-
+    @articles = Article.all.order('created_at DESC').includes(:categories)
+    
     popular = Vote.popular.first
 
     if popular
