@@ -216,10 +216,6 @@ body {
   color: black;
 }
 
-p.article-title-p {
-  margin-top: 2rem !important;
-}
-
 a.article-title {
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -227,8 +223,12 @@ a.article-title {
   text-decoration: none;
 }
 
-a.category-title:hover {
-  text-decoration: none;
+a,
+a:hover,
+a:focus, 
+a:active {
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .article-text {
@@ -238,7 +238,12 @@ a.category-title:hover {
 .article-category {
   a {
     color: white !important;
+    text-decoration: underline yellow !important;
   }
+}
+
+.orange-color {
+  color: orangered;
 }
 
 .card-with-images {

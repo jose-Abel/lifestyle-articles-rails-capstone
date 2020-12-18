@@ -8,11 +8,10 @@ module ArticleHelper
         x.id == popular.article_id
       end
     else
-      articles.reject do |x|
-        x.id == articles[0].id
+     articles.reject do |x|
+        x.id == articles[-1].id
       end
     end
-    articles
   end
 
   def check_picture(article)
@@ -27,7 +26,15 @@ module ArticleHelper
 
   def check_categories(article)
     return unless article.categories.any?
-    article.categories
+    priority = 0
+    most_important_category = ''
+    article.categories.each do |category|
+      if category.priority > priority
+        priority = category.priority
+        most_important_category = category
+      end
+    end
+    most_important_category
   end
   
 end

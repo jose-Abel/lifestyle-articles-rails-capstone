@@ -6,14 +6,8 @@
         <% if @most_voted_article %>
           <%= image_tag check_picture(@most_voted_article), class: "main-image" %>
           <div class="card-img-overlay d-flex justify-content-end flex-column">
-            <h5 class="article-category"><%= render check_categories(@most_voted_article) %> </h5>
-            <h5 class="card-title"><%= link_to @most_voted_article.title, article_path(@most_voted_article), class: "article-title text-white" %></h5>
+            <h5 class="card-title"><%= link_to @most_voted_article.title, article_path(@most_voted_article), class: "article-title orange-color" %></h5>
             <p class="article-text"> <%= truncate(@most_voted_article.text, length: 100) %>.</p>
-            <% if current_user %>
-              <div class="article-voting unvoting badge badge-pill badge-secondary">
-                <%= vote_or_unvote_btn(@most_voted_article)  %>
-              </div>
-            <% end %>
           </div>
         <% end %>
       </div>
@@ -27,14 +21,9 @@
       <div class="col-md-6 col-lg-3 mt-2 column-box">
         <div class="card bg-dark">
            <%= image_tag check_picture(article), class: "images" %>
-          <div class="card-img-overlay">
+          <div class="card-img-overlay d-flex flex-column justify-content-between">
             <h5 class="article-category"><%= render check_categories(article) %> </h5>
-            <p class="article-title-p"><%= link_to article.title, article_path(article), class: "article-title text-white" %></p>
-            <% if current_user %>
-              <div class="other-articles-voting unvoting badge badge-pill badge-secondary">
-                <%= vote_or_unvote_btn(article) %>
-              </div>
-            <% end %>
+            <p><%= link_to article.title, article_path(article), class: "article-title text-white" %></p>
           </div>
         </div>
       </div>

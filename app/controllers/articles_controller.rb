@@ -9,12 +9,12 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    article_id = Vote.popular.first.article_id
+    popular = Vote.popular.first
 
-    if article_id
-      @most_voted_article = Article.find_by(id: article_id)
+    if popular
+      @most_voted_article = Article.find_by(id: popular.article_id)
     else
-      @most_voted_article = @articles[0]
+      @most_voted_article = @articles[-1]
     end
   end
 

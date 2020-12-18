@@ -11,10 +11,19 @@
         <div class="card-body">
           <%= image_tag check_picture(@article), class: "images-show" %>
           <div class="card-text text-left"><%= @article.text %></div>
-          <% if logged_in? && (@article.user == current_user) %>
-            <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
-            <%= link_to "Delete", article_path(@article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% if logged_in? %>
+            <div class="btn btn-outline-secondary">
+              <%= vote_or_unvote_btn(@article) %>
+            </div>
+            <% if @article.user == current_user %>
+              <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
+              <%= link_to "Delete", article_path(@article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            <% end %>
           <% end %>
+            <div class="card-footer text-muted">
+              <small> Created <%= time_ago_in_words(@article.created_at) %> ago,
+              edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
+            </div>          
           </div>
       </div>
     </div>
