@@ -1,19 +1,19 @@
 module ErrorsHelper
 
+  def check_errors(obj)
+    content_tag(:h4, "The following errors prevented the #{check_errors_class(obj)} from being saved", :class=>"alert-heading")
+  end
+
   def check_errors_class(obj)
-    return unless obj.errors.any?
     obj.class.name.downcase
   end
 
   def check_errors_messages(obj)
-    return if obj.errors.full_messages.nil?
-
-    html_values = ""
-    obj.errors.full_messages.each do |msg|
-      html_values << (content_tag :li, msg)
+    content_tag(:ul, :class => 'a class') do
+      obj.errors.full_messages.each do |msg|
+        concat content_tag(:li, msg)
+      end
     end
-    html_values.html_safe
-
   end
 
 end

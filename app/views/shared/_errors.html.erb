@@ -1,11 +1,9 @@
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <h4 class="alert-heading">The following errors prevented the <%= check_errors_class(obj) %> from being saved</h4>
-  <ul>
-    <%= check_errors_messages obj %>
-  </ul>
-  
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-
-</div>
+<% if obj.errors.full_messages.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= check_errors(obj) %>
+    <%= check_errors_messages(obj) %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
