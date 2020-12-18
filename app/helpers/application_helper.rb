@@ -1,4 +1,30 @@
 module ApplicationHelper
+
+  def home_write_links(path)
+    return unless logged_in?
+    if path == "home"
+      link_to('Home', root_path, class: "nav-link")
+
+    elsif path == "article"
+      link_to('Write an Article', new_article_path, class: "nav-link")
+    end
+  end
+
+  def log_status_link(path)
+    if logged_in?
+      if path == "logout"
+        link_to('Log out', logout_path, class: "my-2 my-sm-0 logout links mr-2", method: :delete)
+      end
+    else
+      if path == "login"
+        link_to('Log in', login_path, class: "my-2 my-sm-0 login links mr-2")
+
+      elsif path == "signup"
+        link_to('Sign up', new_user_path, class: "my-2 my-sm-0 signup links mr-2")
+      end
+    end
+  end
+
   def vote_or_unvote_btn(article)
     vote = Vote.find_by(article: article, user: current_user)
     if vote
@@ -7,4 +33,5 @@ module ApplicationHelper
       link_to('Vote', article_votes_path(article_id: article.id), method: :post)
     end
   end
+
 end
