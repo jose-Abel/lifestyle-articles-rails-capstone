@@ -9,7 +9,7 @@ module ArticleHelper
       end
     else
      articles.reject do |x|
-        x.id == articles[-1].id
+        x.id == articles[0].id
       end
     end
   end

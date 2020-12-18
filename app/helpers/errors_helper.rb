@@ -15,5 +15,4 @@ module ErrorsHelper
       end
     end
   end
-
 end

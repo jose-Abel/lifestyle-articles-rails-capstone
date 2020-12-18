@@ -8,13 +8,14 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: %i[edit update destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC')
+
     popular = Vote.popular.first
 
     if popular
       @most_voted_article = Article.find_by(id: popular.article_id)
     else
-      @most_voted_article = @articles[-1]
+      @most_voted_article = @articles[0]
     end
   end
 
