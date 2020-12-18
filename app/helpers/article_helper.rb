@@ -1,13 +1,4 @@
 module ArticleHelper
-  def render_most_popular(articles)
-    popular = Vote.popular.first
-
-    if popular
-      Article.find_by(id: popular.article_id)
-    else
-      articles[0]
-    end
-  end
 
   def render_without_popular(articles)
     popular = Vote.popular.first
@@ -21,9 +12,22 @@ module ArticleHelper
         x.id == articles[0].id
       end
     end
+    articles
   end
 
-  def render_picture(article)
-    article.image.url
+  def check_picture(article)
+    return if article.image_url.nil?
+    article.image_url
   end
+
+  def check_username(article)
+    return if article.user.nil?
+    article.user.username
+  end
+
+  def check_categories(article)
+    return unless article.categories.any?
+    article.categories
+  end
+  
 end

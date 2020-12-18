@@ -5,25 +5,17 @@
   <div class="col-8 mt-4">
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header font-italic">
-          by <%= @article.user.username if @article.user %>
-          <% if @article.categories.any? %>
-            <div class="mt-2"><%= render @article.categories %></div>
-          <% end %>
+          by <%= check_username(@article) %>
+          <div class="mt-2"><%= render check_categories(@article) %></div>
         </div>
         <div class="card-body">
-          <% if @article.image_url %>
-            <%= image_tag render_picture(@article), class: "images" %>
-          <% end %>
-          <div class="card-text text-left"><%= simple_format(@article.text) %></div>
+          <%= image_tag check_picture(@article), class: "images-show" %>
+          <div class="card-text text-left"><%= @article.text %></div>
           <% if logged_in? && (@article.user == current_user) %>
             <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
             <%= link_to "Delete", article_path(@article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
           </div>
-        <div class="card-footer text-muted">
-          <small> Created <%= time_ago_in_words(@article.created_at) %> ago,
-          edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
-        </div>
       </div>
     </div>
   </div>

@@ -9,6 +9,13 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    article_id = Vote.popular.first.article_id
+
+    if article_id
+      @most_voted_article = Article.find_by(id: article_id)
+    else
+      @most_voted_article = @articles[0]
+    end
   end
 
   def show; end
@@ -24,7 +31,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = 'Article was created successfully.'
       redirect_to @article
     else
-      render 'new'
+      render new_article_path
     end
   end
 
