@@ -2,7 +2,7 @@
 
 # Life Style Articles Rails Capstone
 
-The Microverse Rails Capstone that consist of building a web app based on lifestyle articles website. Following the design of the website https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version, and personalising the content.
+The Microverse Rails Capstone that consist of building a web app based on the lifestyle articles website design of Nelson Sakwa on Behance, https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version, and personalising the content.
 
 Following an MVP approach per Rails structure, the project consist of the models, views and controllers of each resource and the routes file routing the propers HTML request to it's corresponding route.
 
