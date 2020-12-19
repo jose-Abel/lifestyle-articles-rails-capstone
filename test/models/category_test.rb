@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
   def setup
-    @category = Category.new(name: 'Sports')
+    @category = Category.new(name: 'Sports', priority: 3)
   end
 
   test 'category should be valid' do

@@ -4,9 +4,11 @@ require 'test_helper'
 
 class VotesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = User.create(username: 'johndoe')
+    @user = User.create(name: 'johndoe')
 
-    @article = Article.create(title: 'Testing article', text: 'Testing functionality of writing an article', user: @user)
+    @pic = File.open('test/fixtures/files/ford-mustang-1970.jpg')
+
+    @article = Article.create(title: 'Testing article', text: 'An article to test Article model functionalities', author_id: @user.id, image: @pic)
 
     @vote = Vote.new(user_id: @user.id, article_id: @article.id)
 
@@ -18,7 +20,7 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
       post article_votes_url(@article)
     end
 
-    assert_redirected_to root_url
+    assert_redirected_to article_url(@article)
   end
 
   test 'should destroy vote' do
@@ -27,7 +29,7 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
       delete article_vote_url(@article, @vote)
     end
 
-    assert_redirected_to root_url
+    assert_redirected_to article_url(@article)
   end
 end
 

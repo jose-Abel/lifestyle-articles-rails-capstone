@@ -4,8 +4,12 @@ require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
   def setup
-    @user = User.create(username: 'john')
-    @article = Article.create(title: 'test article', text: 'testing article model', image: 'link of the image', user: @user)
+    @user = User.create(name: 'john')
+
+    @pic = File.open('test/fixtures/files/ford-mustang-1970.jpg')
+
+    @article = Article.create(title: 'Testing article', text: 'An article to test Article model functionalities', author_id: @user.id, image: @pic)
+
     @vote = Vote.new(user_id: @user.id, article_id: @article.id)
   end
 

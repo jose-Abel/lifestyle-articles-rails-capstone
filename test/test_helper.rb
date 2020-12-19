@@ -11,6 +11,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def sign_in(user)
-    post login_path, params: { session: { username: user.username } }
+    post login_path, params: { session: { name: user.name } }
   end
 end

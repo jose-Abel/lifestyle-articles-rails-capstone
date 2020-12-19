@@ -8,7 +8,15 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: %i[edit update destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC').includes(:categories)
+
+    @popular = Vote.popular.first
+
+    @most_voted_article = if @popular
+                            Article.find_by(id: @popular.article_id)
+                          else
+                            @articles[0]
+                          end
   end
 
   def show; end
@@ -24,7 +32,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = 'Article was created successfully.'
       redirect_to @article
     else
-      render 'new'
+      render new_article_path
     end
   end
 
@@ -40,9 +48,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-
-    redirect_to root_path
+    if @article.destroy
+      flash[:notice] = 'Article was deleted successfully.'
+      redirect_to root_path
+    else
+      redirect_to @article
+    end
   end
 
   private

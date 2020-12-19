@@ -8,28 +8,22 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto ml-auto">
-      <% if logged_in? %>
-        <li class="nav-item links <%= 'active' if request.path ==  root_path %>" >
-            <%= link_to "Home", root_path, class: "nav-link"%>
-        </li>
-
-        <li class="nav-item links" >
-            <%= link_to "Write an Article", new_article_path, class: "nav-link"%>
-        </li>          
-      <% end %>
+      <li class="nav-item links" >
+        <%= home_write_links("home") %>
+      </li>
+      <li class="nav-item links" >
+        <%= home_write_links("article") %>
+      </li>          
     </ul>
-      <div class="form-inline my-2 my-lg-0 login-signup mr-4">
-        <% if logged_in? %>
-            <%= link_to "Log out", logout_path,  class: "my-2 my-sm-0 logout links mr-2", method: :delete %>
-        <% else %>
-            <%= link_to "Log in", login_path,  class: "my-2 my-sm-0 login links mr-2" %>
-            <span class="lineinmiddle mx-2"></span>
-            <%= link_to "Sign up", new_user_path,  class: "my-2 my-sm-0 signup links mr-2" %>
-        <% end %>
-      </div>
-      <div class="magnifying-glass-box">
-        <i class="fas fa-search magnifying-glass"></i>
-      </div>      
+    <div class="form-inline my-2 my-lg-0 login-signup mr-4">
+      <%= log_status_link("logout") %>
+      <%= log_status_link("login") %>
+      <span class="lineinmiddle mx-2"></span>
+      <%= log_status_link("signup") %>
+    </div>
+    <div class="magnifying-glass-box">
+      <i class="fas fa-search magnifying-glass"></i>
+    </div>      
   </div>
 </nav>
 
