@@ -1,7 +1,8 @@
 module ArticleHelper
 
   def render_without_popular(articles)
-    return unless articles.any?
+    return if articles.nil?
+
     popular = Vote.popular.first
 
     if popular
@@ -15,14 +16,33 @@ module ArticleHelper
     end
   end
 
-  def check_picture(article)
-    return if article.image_url.nil?
-    article.image_url
+  def check_picture(article, custom_class)
+    return unless article
+    image_tag(article.image_url, class: custom_class)
   end
 
-  def check_username(article)
-    return if article.user.nil?
-    article.user.username
+  def check_name(article)
+    return unless article
+    article.user.name
+  end
+
+  def check_article(article, attribute, class_name=false)
+    return if article.nil?
+
+    if article
+      if attribute == 'title'
+        link_to(article.title, article_path(article), class: class_name)
+
+      elsif attribute == 'text'
+        return article.text
+  
+      elsif attribute == 'created'
+        return article.created_at
+
+      elsif attribute == 'updated'
+        return article.updated_at
+      end
+    end
   end
 
   def check_categories(article)

@@ -25,13 +25,34 @@ module ApplicationHelper
     end
   end
 
-  def vote_or_unvote_btn(article)
-    vote = Vote.find_by(article: article, user: current_user)
-    if vote
-      link_to('Unvote', article_vote_path(id: vote.id, article_id: article.id), method: :delete)
-    else
-      link_to('Vote', article_votes_path(article_id: article.id), method: :post)
+  def view_edit_delete_links(article, path)
+    return unless article
+
+    if path == 'view'
+      link_to('View', article_path(article), class: "btn btn-outline-success")
+    end
+
+    if logged_in?
+      if article.user == current_user
+        if path == "edit"
+          link_to('Edit', edit_article_path(article), class: "btn btn-outline-info")
+        elsif path == "delete"
+          link_to('Delete', article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"})
+        end
+      end
     end
   end
 
+  def vote_or_unvote_btn(article)
+    return unless logged_in?
+
+    content_tag(:div, :class => 'btn btn-outline-secondary') do
+    vote = Vote.find_by(article: article, user: current_user)
+      if vote
+        link_to('Unvote', article_vote_path(id: vote.id, article_id: article.id), method: :delete)
+      else
+        link_to('Vote', article_votes_path(article_id: article.id), method: :post)
+      end
+    end
+  end
 end

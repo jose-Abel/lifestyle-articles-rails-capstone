@@ -9,7 +9,7 @@ module ErrorsHelper
   end
 
   def check_errors_messages(obj)
-    content_tag(:ul, :class => 'a class') do
+    content_tag(:ul) do
       obj.errors.full_messages.each do |msg|
         concat content_tag(:li, msg)
       end

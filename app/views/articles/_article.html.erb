@@ -3,21 +3,19 @@
     <% @articles.each do |article| %>
       <div class="col-md-12 col-lg-6 mt-4 card-with-images">
         <div>
-          <%= image_tag check_picture(article), class: "images-show" %>
+          <%= check_picture(article, "images-show") %>
         </div>
         <div class="card text-center shadow bg-white">
           <div class="card-header font-italic">
-            by <%= article.user.name %>
+            by <%= check_name(article) %>
             <div class=""><%= render check_categories(article) %></div>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= link_to article.title, article_path(article), class:"text-success" %></h5>     
-            <p class="card-text"><%= truncate(article.text, length: 100) %></p>
-            <%= link_to "View", article_path(article), class:"btn btn-outline-success" %>
-            <% if logged_in? && (article.user == current_user) %>
-              <%= link_to "Edit", edit_article_path(article), class:"btn btn-outline-info" %>
-              <%= link_to "Delete", article_path(article), class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-            <% end %>
+            <h5 class="card-title"><%= check_article(article,'title', "text-success") %></h5>     
+            <p class="card-text"><%= truncate(check_article(article, 'text'), length: 100) %></p>
+            <%= view_edit_delete_links(article, 'view') %>
+            <%= view_edit_delete_links(article, 'edit') %>
+            <%= view_edit_delete_links(article, 'delete') %>
           </div>
         </div>
       </div>
