@@ -1,5 +1,7 @@
 # rubocop : disable Layout/LineLength
 
+# rubocop : disable Metrics/CyclomaticComplexity
+
 module ArticleHelper
   def render_without_popular(articles)
     return if articles.nil?
@@ -76,5 +78,7 @@ module ArticleHelper
     end
   end
 end
+
+# rubocop : enable Metrics/CyclomaticComplexity
 
 # rubocop : enable Layout/LineLength
