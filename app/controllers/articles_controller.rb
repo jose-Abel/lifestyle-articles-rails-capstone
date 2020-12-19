@@ -9,14 +9,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order('created_at DESC').includes(:categories)
-    
-    popular = Vote.popular.first
 
-    if popular
-      @most_voted_article = Article.find_by(id: popular.article_id)
-    else
-      @most_voted_article = @articles[0]
-    end
+    @popular = Vote.popular.first
+
+    @most_voted_article = if @popular
+                            Article.find_by(id: @popular.article_id)
+                          else
+                            @articles[0]
+                          end
   end
 
   def show; end

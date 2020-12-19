@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Vote do
   describe 'Validation of Vote' do
-    let(:user) { User.create(name: 'Johny')}
+    let(:user) { User.create(name: 'Johny') }
 
     let(:pic) { File.open('spec/fixtures/ford-mustang-1970.jpg') }
 
-    let(:article) { Article.create(title: 'Testing article', text: 'An article to test Article model functionalities', author_id: user.id, image: pic) }
+    let(:article) { Article.create(title: 'Testing', text: 'Creating testing article', author_id: user.id, image: pic) }
 
     let(:vote) { Vote.create(user_id: user.id, article_id: article.id) }
 

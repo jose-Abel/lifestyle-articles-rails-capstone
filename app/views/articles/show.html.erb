@@ -12,10 +12,8 @@
           <%= check_picture(@article, 'images-show') %>
           <div class="card-text text-left"><%= check_article(@article, 'text') %></div>
           <%= vote_or_unvote_btn(@article) %>
-            <% if @article.user == current_user %>
-              <%= view_edit_delete_links(@article, 'edit') %>
-              <%= view_edit_delete_links(@article, 'delete') %>
-            <% end %>
+            <%= view_edit_delete_links(@article, 'edit') %>
+            <%= view_edit_delete_links(@article, 'delete') %>
             <div class="card-footer text-muted">
               <small> Created <%= time_ago_in_words(check_article(@article, 'created')) %> ago,
               edited <%= time_ago_in_words(check_article(@article,'updated')) %> ago </small>
@@ -25,3 +23,5 @@
     </div>
   </div>
 </div>
+
+<%= render "layouts/footer" %>

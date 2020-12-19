@@ -6,12 +6,12 @@ RSpec.describe Article do
 
     let(:pic) { File.open('spec/fixtures/ford-mustang-1970.jpg') }
 
-    subject { Article.create(title: 'Testing article', text: 'An article to test Article model functionalities', author_id: user.id, image: pic) }
+    subject { Article.create(title: 'Testing', text: 'Creating a testing article', author_id: user.id, image: pic) }
 
     it 'confirms count of articles increase by 1' do
       expect { subject }.to change { Article.count }.by(1)
     end
-    
+
     it 'Ensure the title length is more than 6' do
       subject.title = 'a' * 5
       expect(subject.valid?).to_not eq(true)
@@ -28,7 +28,7 @@ RSpec.describe Article do
     end
 
     it 'Ensure the text length is less than 10001' do
-      subject.text = 'a' * 10001
+      subject.text = 'a' * 10_001
       expect(subject.valid?).to_not eq(true)
     end
 

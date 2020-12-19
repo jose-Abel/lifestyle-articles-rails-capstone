@@ -106,6 +106,18 @@ For the linters, this tests runs once you make a PR, if you have it in the respe
 
 ## Run Rails Rspec Tests 
 
+Download and install Google Chrome browser if don't have it to run the system rspec tests.
+
+To install Google Chrome browser
+
+```
+	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+	sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+To run the rspec tests
+
 ```
 
 rspec spec

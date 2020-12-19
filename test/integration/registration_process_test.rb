@@ -5,11 +5,11 @@ class RegistrationTest < ActionDispatch::IntegrationTest
     get '/users/new'
     assert_response :success
 
-    post users_path, params: { user: { username: 'testing' } }
+    post users_path, params: { user: { name: 'testing' } }
     assert_response :redirect
 
     follow_redirect!
     assert_response :success
-    assert_match 'Welcome testing to the LifeStyle Articles', response.body
+    assert_match 'Welcome Testing to the LifeStyle Articles', response.body
   end
 end

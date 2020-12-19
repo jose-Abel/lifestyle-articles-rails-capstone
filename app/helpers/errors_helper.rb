@@ -1,7 +1,8 @@
-module ErrorsHelper
+# rubocop : disable Layout/LineLength
 
+module ErrorsHelper
   def check_errors(obj)
-    content_tag(:h4, "The following errors prevented the #{check_errors_class(obj)} from being saved", :class=>"alert-heading")
+    content_tag(:h4, "The following errors prevented the #{check_errors_class(obj)} from being saved", class: 'alert-heading')
   end
 
   def check_errors_class(obj)
@@ -16,3 +17,5 @@ module ErrorsHelper
     end
   end
 end
+
+# rubocop : enable Layout/LineLength

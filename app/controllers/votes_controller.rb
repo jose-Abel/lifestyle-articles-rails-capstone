@@ -5,12 +5,10 @@ class VotesController < ApplicationController
 
     if @vote.save
       flash[:notice] = 'You vote an article.'
-      redirect_to article_path(article)
-
     else
       flash[:alert] = 'You cannot vote this article.'
-      redirect_to article_path(article)
     end
+    redirect_to article_path(article)
   end
 
   def destroy
@@ -21,10 +19,9 @@ class VotesController < ApplicationController
     if vote
       vote.destroy
       flash[:notice] = 'You unvoted an article.'
-      redirect_to article_path(article)
     else
       flash[:alert] = 'You cannot unvote an article that you did not vote before.'
-      redirect_to article_path(article)
     end
+    redirect_to article_path(article)
   end
 end

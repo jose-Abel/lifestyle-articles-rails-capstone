@@ -14,13 +14,13 @@
             <h5 class="card-title"><%= check_article(article,'title', "text-success") %></h5>     
             <p class="card-text"><%= truncate(check_article(article, 'text'), length: 100) %></p>
             <%= view_edit_delete_links(article, 'view') %>
-            <%= view_edit_delete_links(article, 'edit') %>
-            <%= view_edit_delete_links(article, 'delete') %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+<%= render "layouts/footer" %>
 
 
