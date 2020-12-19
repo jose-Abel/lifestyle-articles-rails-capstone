@@ -1,0 +1,26 @@
+<div class="custom-container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-md-12 col-lg-6 mt-4 card-with-images">
+        <div>
+          <%= check_picture(article, "images-show") %>
+        </div>
+        <div class="card text-center shadow bg-white">
+          <div class="card-header font-italic">
+            by <%= check_name(article) %>
+            <div class=""><%= render check_categories(article) %></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= check_article(article,'title', "text-success") %></h5>     
+            <p class="card-text"><%= truncate(check_article(article, 'text'), length: 100) %></p>
+            <%= view_edit_delete_links(article, 'view') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "layouts/footer" %>
+
+

@@ -1,0 +1,34 @@
+<div class="main-image-box" >
+  <div class="row">
+    <div class="col remove-padding">
+      <div class="card bg-dark text-white">
+        <%= check_picture(@most_voted_article, 'main-image') %>
+        <div class="card-img-overlay d-flex justify-content-end flex-column">
+          <h5 class="card-title"><%= check_article(@most_voted_article, 'title', 'article-title orange-color') %></h5>
+          <p class="article-text"> <%= truncate(check_article(@most_voted_article, 'text'), length: 100) %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="images-box mt-2" >
+  <div class=" row">
+    <% render_without_popular(@articles).each do |article| %>
+      <div class="col-md-6 col-lg-3 mt-2 column-box">
+        <div class="card bg-dark">
+           <%= check_picture(article, 'images') %>
+          <div class="card-img-overlay d-flex flex-column justify-content-between">
+            <h5 class="article-category"><%= render check_categories(article) %> </h5>
+            <p><%= check_article(article, 'title', "article-title text-white") %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "layouts/footer" %>
+
+
+
